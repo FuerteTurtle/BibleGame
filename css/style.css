@@ -1,0 +1,54 @@
+:root {
+    --main-background: #0A0A0B;
+    --nav-bar-color: #1c1c20;
+    --current-nav: #292A30;
+    --border-color: #474954;
+    --text-color: white;
+    --text-highlight: #47a879;
+    --current-nav: #292A30;
+}
+
+body {
+    background-color: var(--main-background);
+    color: var(--text-color);
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+#main-grid {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    padding: 8px;
+}
+
+#nav-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: var(--nav-bar-color);
+    border-radius: 5px;
+}
+
+.nav-link {
+    padding: 0px 8px;
+    flex-basis: 100px;
+    display: flex;
+}
+
+.nav-text {
+    font-size: large;
+    height: auto;
+    margin: auto;
+}
+
+.current-nav {
+    color: var(--text-highlight);
+    background-color: var(--current-nav);
+    border-radius: 5px;
+    height: 100%;
+}
+
+.nav-text:hover, .nav-text:active {
+    color: var(--text-highlight);
+    cursor: pointer;
+}
