@@ -6,6 +6,7 @@
     ;
     --text-color: white;
     --text-highlight: #f7354d;
+    --text-secondary: #31d3c8;
     --nav-marg-bottom: 8px;
     --card-width: 216px;
     --card-height: 336px;
@@ -19,50 +20,17 @@ body {
     font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-#main-grid {
-    display: grid;
-    grid-template-rows: 50px 1fr;
-    padding: 8px;
-}
-
-#nav-bar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: nowrap;
-    background-color: var(--nav-bar-color);
-    border-radius: 5px;
-}
-
-.nav-link {
-    padding: 0px 8px;
-    flex-basis: 100px;
-    display: flex;
-}
-
-.nav-text {
-    font-size: large;
-    height: auto;
-    margin: auto;
-}
-
-.current-nav {
-    color: var(--text-highlight);
-    background-color: var(--current-nav);
-    border-radius: 5px;
-    height: 100%;
-}
-
-.nav-text:hover, .nav-text:active {
-    color: var(--text-highlight);
-    cursor: pointer;
+body:hover {
+    cursor: default;
 }
 
 #card-area {
+    height: 90vh;
     margin-top: var(--nav-marg-bottom);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .card-container {
@@ -70,36 +38,60 @@ body {
     display: grid;
     grid-template-columns: var(--choice-height) var(--card-width) var(--choice-height);
 }
+
 .choice {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.choice > div{
-    background-color:var(--current-nav);
-    flex-basis: 150px;
-    padding:6px;
+
+.choice>div {
+    position: relative;
+    font-weight: bold;
+    background-color: var(--current-nav);
+    flex-basis: 120px;
+    flex-shrink: 0;
+    padding: 7px;
     border-top-left-radius: var(--card-radius);
     border-top-right-radius: var(--card-radius);
+    border-left: solid white 3px;
+    border-right: solid white 3px;
+    border-top: solid white 3px;
+    display: flex;
+    justify-content: center;
 }
-.bible > div{
+
+.choice>div:hover {
+    color: var(--text-highlight);
+    filter: drop-shadow(0px 0px 5px white);
+}
+
+.bible>div {
     transform: rotate(270deg);
 }
-.blasphemy > div{
+
+.bible>div:hover {
+    color: var(--text-secondary);
+}
+
+.blasphemy>div {
     transform: rotate(90deg);
 }
 
 .card {
-    width: var(--card-width);
+    /* width: var(--card-width); */
     height: var(--card-height);
+    border: solid white 3px;
     border-radius: 8px;
-    background-color: var(--border-color);
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 3fr 2fr;
+    background: rgb(76, 47, 65);
+    background: linear-gradient(135deg, rgba(76, 47, 65, 1) 0%, rgb(121, 83, 104) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.top-half {
+/* .top-half {
     display: flex;
     background-color: var(--nav-bar-color);
     border-top-left-radius: var(--card-radius);
@@ -114,4 +106,4 @@ body {
     background-color: var(--current-nav);
     border-bottom-left-radius: var(--card-radius);
     border-bottom-right-radius: var(--card-radius);
-}
+} */
