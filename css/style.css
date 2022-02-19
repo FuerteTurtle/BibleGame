@@ -1,11 +1,16 @@
 :root {
-    --main-background: #0A0A0B;
-    --nav-bar-color: #1c1c20;
-    --current-nav: #292A30;
-    --border-color: #474954;
+    --main-background: #1d1118;
+    --nav-bar-color: #4c2f41;
+    --current-nav: #563b4a;
+    --border-color: #331e2a;
+    ;
     --text-color: white;
-    --text-highlight: #47a879;
-    --current-nav: #292A30;
+    --text-highlight: #f7354d;
+    --nav-marg-bottom: 8px;
+    --card-width: 216px;
+    --card-height: 336px;
+    --card-radius: 8px;
+    --choice-height: 30px;
 }
 
 body {
@@ -51,4 +56,62 @@ body {
 .nav-text:hover, .nav-text:active {
     color: var(--text-highlight);
     cursor: pointer;
+}
+
+#card-area {
+    margin-top: var(--nav-marg-bottom);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container {
+    width: calc(var(--card-width) + 2 * var(--choice-height));
+    display: grid;
+    grid-template-columns: var(--choice-height) var(--card-width) var(--choice-height);
+}
+.choice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.choice > div{
+    background-color:var(--current-nav);
+    flex-basis: 150px;
+    padding:6px;
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+}
+.bible > div{
+    transform: rotate(270deg);
+}
+.blasphemy > div{
+    transform: rotate(90deg);
+}
+
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: 8px;
+    background-color: var(--border-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 2fr;
+}
+
+.top-half {
+    display: flex;
+    background-color: var(--nav-bar-color);
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: medium;
+}
+
+.bottom-half {
+    background-color: var(--current-nav);
+    border-bottom-left-radius: var(--card-radius);
+    border-bottom-right-radius: var(--card-radius);
 }
