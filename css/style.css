@@ -1,6 +1,6 @@
 :root {
     /* --main-background: #1d1118; */
-    --main-background:#f7354d;
+    --main-background: #f7354d;
     --card-text-color: #4c2f41;
     --border-color: #331e2a;
     --text-tertiary: #f7354d;
@@ -8,7 +8,7 @@
     --choice-background: #563b4a;
     --card-width: 2.5in;
     --card-height: 3.5in;
-    --card-phone-width: 80vw;
+    --card-phone-width: 75vw;
     --card-phone-height: calc((14/9)*var(--card-phone-width));
     --choice-radius: 30px;
     --choice-height: 30px;
@@ -27,7 +27,7 @@ body:hover {
     cursor: default;
 }
 
-#area-wrapper{
+#area-wrapper {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -88,15 +88,17 @@ body:hover {
     padding: 20px;
 }
 
-@media screen and (max-width: 450px){
-    body{
+@media only screen and (max-width: 576px) {
+    body {
         background-color: green;
     }
-    /* .card-container {
+
+    .card-container {
         width: calc(var(--card-phone-width) + 2 * var(--choice-height));
         display: grid;
         grid-template-columns: var(--choice-height) var(--card-phone-width) var(--choice-height);
     }
+
     .card {
         height: var(--card-phone-height);
         border: solid var(--border-color) 5px;
@@ -106,7 +108,6 @@ body:hover {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px; */
+        padding: 20px;
     }
-
 }
