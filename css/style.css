@@ -90,7 +90,7 @@ body:hover {
 
 @media only screen and (max-width: 576px) {
     body {
-        background-color: green;
+        overflow: hidden;
     }
 
     .card-container {
