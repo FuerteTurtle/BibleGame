@@ -1,17 +1,16 @@
 :root {
     /* --main-background: #1d1118; */
     --main-background:#f7354d;
-    --nav-bar-color: #4c2f41;
-    --current-nav: #563b4a;
+    --card-text-color: #4c2f41;
     --border-color: #331e2a;
-    ;
-    --text-color: white;
-    --text-highlight: #f7354d;
+    --text-tertiary: #f7354d;
     --text-secondary: #31d3c8;
-    --nav-marg-bottom: 8px;
-    --card-width: 216px;
-    --card-height: 336px;
-    --card-radius: 30px;
+    --choice-background: #563b4a;
+    --card-width: 2.5in;
+    --card-height: 3.5in;
+    --card-phone-width: 80vw;
+    --card-phone-height: calc((14/9)*var(--card-phone-width));
+    --choice-radius: 30px;
     --choice-height: 30px;
 }
 
@@ -50,12 +49,12 @@ body:hover {
 .choice>div {
     position: relative;
     font-weight: bold;
-    background-color: var(--current-nav);
+    background-color: var(--choice-background);
     flex-basis: 120px;
     flex-shrink: 0;
     padding: 7px;
-    border-top-left-radius: var(--card-radius);
-    border-top-right-radius: var(--card-radius);
+    border-top-left-radius: var(--choice-radius);
+    border-top-right-radius: var(--choice-radius);
     border-left: solid var(--border-color) 5px;
     border-right: solid var(--border-color) 5px;
     border-top: solid var(--border-color) 5px;
@@ -73,38 +72,18 @@ body:hover {
 }
 
 .blasphemy>div {
-    color: var(--text-highlight);
+    color: var(--text-tertiary);
     transform: rotate(90deg);
 }
 
 .card {
-    /* width: var(--card-width); */
     height: var(--card-height);
     border: solid var(--border-color) 5px;
     border-radius: 8px;
-    color: var(--nav-bar-color);
-    /* background: rgb(76, 47, 65); */
-    /* background: linear-gradient(135deg, rgba(76, 47, 65, 1) 0%, rgb(121, 83, 104) 100%); */
+    color: var(--card-text-color);
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
 }
-
-/* .top-half {
-    display: flex;
-    background-color: var(--nav-bar-color);
-    border-top-left-radius: var(--card-radius);
-    border-top-right-radius: var(--card-radius);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    font-size: medium;
-}
-
-.bottom-half {
-    background-color: var(--current-nav);
-    border-bottom-left-radius: var(--card-radius);
-    border-bottom-right-radius: var(--card-radius);
-} */
