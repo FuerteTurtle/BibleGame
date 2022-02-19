@@ -87,3 +87,26 @@ body:hover {
     justify-content: center;
     padding: 20px;
 }
+
+@media screen and (max-width: 450px){
+    body{
+        background-color: green;
+    }
+    /* .card-container {
+        width: calc(var(--card-phone-width) + 2 * var(--choice-height));
+        display: grid;
+        grid-template-columns: var(--choice-height) var(--card-phone-width) var(--choice-height);
+    }
+    .card {
+        height: var(--card-phone-height);
+        border: solid var(--border-color) 5px;
+        border-radius: 8px;
+        color: var(--card-text-color);
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px; */
+    }
+
+}
