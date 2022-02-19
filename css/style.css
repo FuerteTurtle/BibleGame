@@ -1,5 +1,6 @@
 :root {
-    --main-background: #1d1118;
+    /* --main-background: #1d1118; */
+    --main-background:#f7354d;
     --nav-bar-color: #4c2f41;
     --current-nav: #563b4a;
     --border-color: #331e2a;
@@ -10,14 +11,15 @@
     --nav-marg-bottom: 8px;
     --card-width: 216px;
     --card-height: 336px;
-    --card-radius: 8px;
+    --card-radius: 30px;
     --choice-height: 30px;
 }
 
 body {
     background-color: var(--main-background);
     color: var(--text-color);
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
     padding: 0;
     margin: 0;
 }
@@ -30,11 +32,6 @@ body:hover {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-#card-area {
-    display: flex;
     justify-content: center;
 }
 
@@ -59,9 +56,9 @@ body:hover {
     padding: 7px;
     border-top-left-radius: var(--card-radius);
     border-top-right-radius: var(--card-radius);
-    border-left: solid white 3px;
-    border-right: solid white 3px;
-    border-top: solid white 3px;
+    border-left: solid var(--border-color) 5px;
+    border-right: solid var(--border-color) 5px;
+    border-top: solid var(--border-color) 5px;
     display: flex;
     justify-content: center;
 }
@@ -83,10 +80,12 @@ body:hover {
 .card {
     /* width: var(--card-width); */
     height: var(--card-height);
-    border: solid white 3px;
+    border: solid var(--border-color) 5px;
     border-radius: 8px;
-    background: rgb(76, 47, 65);
-    background: linear-gradient(135deg, rgba(76, 47, 65, 1) 0%, rgb(121, 83, 104) 100%);
+    color: var(--nav-bar-color);
+    /* background: rgb(76, 47, 65); */
+    /* background: linear-gradient(135deg, rgba(76, 47, 65, 1) 0%, rgb(121, 83, 104) 100%); */
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
