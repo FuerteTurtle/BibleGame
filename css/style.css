@@ -18,18 +18,23 @@ body {
     background-color: var(--main-background);
     color: var(--text-color);
     font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 body:hover {
     cursor: default;
 }
 
-#card-area {
-    height: 90vh;
-    margin-top: var(--nav-marg-bottom);
+#area-wrapper{
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+#card-area {
+    display: flex;
     justify-content: center;
 }
 
@@ -62,19 +67,16 @@ body:hover {
 }
 
 .choice>div:hover {
-    color: var(--text-highlight);
     filter: drop-shadow(0px 0px 5px white);
 }
 
 .bible>div {
     transform: rotate(270deg);
-}
-
-.bible>div:hover {
     color: var(--text-secondary);
 }
 
 .blasphemy>div {
+    color: var(--text-highlight);
     transform: rotate(90deg);
 }
 
