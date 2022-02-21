@@ -53,10 +53,6 @@ body:hover {
     justify-content: center;
 }
 
-.hide-choice{
-    opacity: 0;
-}
-
 .choice>div {
     position: relative;
     font-weight: bold;
