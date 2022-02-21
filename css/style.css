@@ -8,6 +8,7 @@
     --choice-background: #563b4a;
     --wrong-background: #402836;
     --wrong-color: #f7354d;
+    --right-color: #31d3c8;
     --card-width: 2.5in;
     --card-height: 3.95in;
     --card-phone-width: 75vw;
@@ -106,6 +107,7 @@ body:hover {
     justify-content: center;
     padding: 20px;
     height: var(--card-height);
+    width: 100%;
     border: solid var(--border-color) 5px;
     border-radius: 8px;
     position: absolute;
@@ -119,13 +121,20 @@ body:hover {
 }
 
 .card-back {
-    background-color: var(--wrong-background);
-    color: var(--wrong-color);
+    display: flex;
+    flex-direction: column;
     transform: rotateY(180deg);
-    font-size: xx-large;
-    text-align: center;
 }
 
+.back-correct {
+    background-color: var(--wrong-background);
+    color: var(--right-color);
+}
+
+.back-incorrect {
+    background-color: var(--wrong-background);
+    color: var(--wrong-color);
+}
 
 @media only screen and (max-width: 576px) {
     .card-container {
