@@ -6,12 +6,18 @@
     --text-tertiary: #f7354d;
     --text-secondary: #31d3c8;
     --choice-background: #563b4a;
+    --wrong-background: #402836;
+    --wrong-color: #f7354d;
     --card-width: 2.5in;
-    --card-height: 3.5in;
+    --card-height: 3.95in;
     --card-phone-width: 75vw;
     --card-phone-height: calc((14/9)*var(--card-phone-width));
     --choice-radius: 30px;
     --choice-height: 30px;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -78,15 +84,48 @@ body:hover {
 
 .card {
     height: var(--card-height);
-    border: solid var(--border-color) 5px;
-    border-radius: 8px;
-    color: var(--card-text-color);
-    background-color: white;
+    width: var(--card-width);
+    z-index: 1;
+}
+
+.card-wrapper {
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-wrapper {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
     display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    height: var(--card-height);
+    border: solid var(--border-color) 5px;
+    border-radius: 8px;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
+
+.card-front {
+    background-color: white;
+    color: var(--card-text-color);
+}
+
+.card-back {
+    background-color: var(--wrong-background);
+    color: var(--wrong-color);
+    transform: rotateY(180deg);
+    font-size: xx-large;
+    text-align: center;
+}
+
 
 @media only screen and (max-width: 576px) {
     .card-container {
@@ -96,14 +135,12 @@ body:hover {
     }
 
     .card {
+        width: var(--card-phone-width);
         height: var(--card-phone-height);
-        border: solid var(--border-color) 5px;
-        border-radius: 8px;
-        color: var(--card-text-color);
-        background-color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
+    }
+
+    .card-front, .card-back {
+        height: var(--card-phone-height);
+        width: 100%;
     }
 }
