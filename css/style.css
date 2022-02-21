@@ -6,7 +6,8 @@
     --text-tertiary: #f7354d;
     --text-secondary: #31d3c8;
     --choice-background: #563b4a;
-    --wrong-background: #402836;
+    --back-background1: #402836;
+    --back-background2: #563b4a;
     --wrong-color: #f7354d;
     --right-color: #31d3c8;
     --card-width: 2.5in;
@@ -91,7 +92,7 @@ body:hover {
     transform-style: preserve-3d;
 }
 
-.flip{
+.flip {
     transform: rotateY(180deg);
 }
 
@@ -120,15 +121,18 @@ body:hover {
     display: flex;
     flex-direction: column;
     transform: rotateY(180deg);
+    /* background: rgb(76, 47, 65);
+    background: linear-gradient(210deg, var(--back-background1) 0%, var(--back-background1) 50%,
+                                var(--back-background2) 50%, var(--back-background2) 100%); */
 }
 
 .back-correct {
-    background-color: var(--wrong-background);
+    background-color: var(--back-background1);
     color: var(--right-color);
 }
 
 .back-incorrect {
-    background-color: var(--wrong-background);
+    background-color: var(--back-background1);
     color: var(--wrong-color);
 }
 
