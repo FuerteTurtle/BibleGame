@@ -53,6 +53,10 @@ body:hover {
     justify-content: center;
 }
 
+.hide-choice{
+    opacity: 0;
+}
+
 .choice>div {
     position: relative;
     font-weight: bold;
@@ -67,10 +71,6 @@ body:hover {
     border-top: solid var(--border-color) 5px;
     display: flex;
     justify-content: center;
-}
-
-.choice>div:hover {
-    filter: drop-shadow(0px 0px 5px white);
 }
 
 .bible>div {
@@ -95,7 +95,7 @@ body:hover {
     transform-style: preserve-3d;
 }
 
-.card:hover .card-wrapper {
+.flip{
     transform: rotateY(180deg);
 }
 

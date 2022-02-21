@@ -44,6 +44,7 @@ function checkAnswer(isBibleChoice, datum) {
 }
 
 function flipCard(myBool) {
+    $(".choice").addClass("hide-choice");
     if (myBool) {
         console.log("correct choice, flipping card true");
         $(".card-back").removeClass("back-incorrect");
