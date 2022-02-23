@@ -6,9 +6,6 @@ class Datum {
         this.context = context;
     }
 }
-const SPREADSHEET_ID = "1H-ZamZf4-GGu1TV2e8sqlv_VtnA0sWaFh92j_naraqQ";
-const SHEET_ID = 0;
-const API_KEY = "AIzaSyD17uZ-RUn-vYdJfJqqFhJw-Oiibmtlffc";
 let quote = `Do not think that I came to bring peace on earth.
              I did not come to bring peace but a sword.
              For I have come to ‘set a man against his father, a daughter against her mother...;
