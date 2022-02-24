@@ -6,53 +6,96 @@ class Datum {
         this.context = context;
     }
 }
-let quote = `Do not think that I came to bring peace on earth.
-             I did not come to bring peace but a sword.
-             For I have come to ‘set a man against his father, a daughter against her mother...;
-             and ‘a man’s enemies will be those of his own household.’
-             He who loves father or mother more than Me is not worthy of Me.
-             And he who loves son or daughter more than Me is not worthy of Me.`;
-let myDatum = new Datum(quote, isBible = true, source = "Matthew 10:34-37", context = "Jesus out here wildin'");
-$(window).ready(updateCurrentCard(myDatum));
-$(window).ready($(".blasphemy").click(checkAnswer(false, myDatum)));
-$(window).ready($(".bible").click(checkAnswer(true, myDatum)));
-function updateCurrentCard(datum) {
-    $(".card-front").html(datum.quote);
-    $("#source").html(datum.source);
-    $("#context").html(datum.context);
-    if (datum.isBible) {
-        $("#explanation").html("This verse is in the bible");
+$(window).ready(httpGetAsync(myURL, parseText));
+
+const interpret = XState.interpret;
+const createMachine = XState.createMachine;
+
+const gameMachine = createMachine({
+    id: 'game',
+    initial: 'front',
+    states: {
+        front: {
+            on: {
+                CHOICE: { target: 'back', actions: ['updateBack', 'flipCard'] }
+            }
+        },
+        back: {
+            on: {
+                NEXT: { target: 'front', actions: ['updateFront', 'flipCard'] },
+                END: 'end'
+            }
+        },
+        end: { on: { RESTART: 'front' } }
     }
-    else {
-        $("#explanation").html("This isn't from the bible");
-    }
+},
+    {
+        actions: {
+            updateBack: (context, event) => {
+                if (event.choice == currentCard.isBible) {
+                    // display right back
+                    $(".card-back").removeClass("back-incorrect");
+                    $(".card-back").addClass("back-correct");
+                    $("#back-title").html("CORRECT");
+                    $("#source").html(currentCard.source);
+                    $("#context").html(currentCard.context);
+                }
+                else {
+                    // display wrong back
+                    $(".card-back").removeClass("back-correct");
+                    $(".card-back").addClass("back-incorrect");
+                    $("#back-title").html("WRONG");
+                    $("#source").html(currentCard.source);
+                    $("#context").html(currentCard.context);
+                }
+            },
+            flipCard: () => {
+                if ($("#card-wrapper").hasClass("flip")) {
+                    $("#card-wrapper").removeClass("flip");
+                }
+                else {
+                    $("#card-wrapper").addClass("flip");
+                }
+            },
+            updateFront: (context, event) => {
+                currentCard = event.myShuffledCards.next().value;
+                if(currentCard == undefined){
+                    console.log("end of game");
+                }
+                $(".card-front").html(currentCard.quote);
+            },
+        }
+    });
+const gameService = interpret(gameMachine);
+let shuffledCards = [];
+let currentCard = {};
+
+function playGame(dataArray) {
+    shuffledCards = shuffle(dataArray);
+    gameService.start();
+    currentCard = shuffledCards.next().value;
+    $(".card-front").html(currentCard.quote);
+    $(".blasphemy").click(choice(false, currentCard));
+    $(".bible").click(choice(true, currentCard));
+    $(".card-back").click(next(shuffledCards));
 }
 
-function checkAnswer(isBibleChoice, datum) {
+function choice(isCurrBible) {
     return function (e) {
-        if (isBibleChoice == datum.isBible) {
-            flipCard(true, datum);
-        }
-        else {
-            flipCard(false, datum);
-        }
+        gameService.send("CHOICE", { choice: isCurrBible});
     }
 }
 
-function flipCard(myBool) {
-    if (myBool) {
-        console.log("correct choice, flipping card true");
-        $(".card-back").removeClass("back-incorrect");
-        $(".card-back").addClass("back-correct");
-        $(".card-back>h1").html("CORRECT")
-        $(".card-wrapper").addClass("flip");
-    }
-    else {
-        console.log("incorrect choice, flipping card false");
-        $(".card-back").removeClass("back-correct");
-        $(".card-back").addClass("back-incorrect");
-        $(".card-back>h1").html("WRONG")
-        $(".card-wrapper").addClass("flip");
+function next(myShuffledCards) {
+    return function (e) {
+        gameService.send("NEXT", { myShuffledCards: myShuffledCards })
     }
 
+}
+
+function* shuffle(array) {
+    var i = array.length;
+    while (i--) {
+        yield array.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
+    }
 }

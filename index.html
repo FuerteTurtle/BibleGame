@@ -3,11 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="js/jquery-3.6.0.slim.min.js"></script>
-    <script defer src="https://apis.google.com/js/api.js"></script>
+    <script src="https://unpkg.com/xstate@4/dist/xstate.js"></script>
+    <script src="js/devapi.js"></script>
+    <script src="js/sheets.js"></script>
     <script defer src="js/main.js"></script>
-    <script defer src="js/sheets.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,20 +23,14 @@
                     <div>BIBLE</div>
                 </div>
                 <div class="card">
-                    <div class="card-wrapper">
+                    <div id="card-wrapper">
                         <div class="card-front">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias recusandae maiores
-                            cupiditate
-                            ipsum,
-                            natus nisi laboriosam repellendus, sapiente sint iure dicta iusto? Iste, veniam mollitia
-                            quis
-                            suscipit eum nostrum nihil.
                         </div>
                         <div class="card-back">
-                            <h1>Wrong!</h1>
-                            <p id="explanation"></p>
-                            <p id="source"></p>
-                            <p id="context"></p>
+                            <div id="back-title" class="back-div"></div>
+                            <!-- <div id="explanation" class="back-div"></div> -->
+                            <div id="source" class="back-div"></div>
+                            <div id="context" class="back-div"></div>
                         </div>
 
                     </div>

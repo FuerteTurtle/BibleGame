@@ -86,7 +86,7 @@ body:hover {
     z-index: 1;
 }
 
-.card-wrapper {
+#card-wrapper {
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -100,8 +100,6 @@ body:hover {
     display: flex;
     flex-grow: 0;
     flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
     height: var(--card-height);
     width: 100%;
@@ -113,27 +111,43 @@ body:hover {
 }
 
 .card-front {
+    align-items: center;
+    justify-content: center;
     background-color: white;
     color: var(--card-text-color);
 }
-
 .card-back {
-    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-shrink: 0;
     flex-direction: column;
     transform: rotateY(180deg);
-    /* background: rgb(76, 47, 65);
+    background: rgb(76, 47, 65);
     background: linear-gradient(210deg, var(--back-background1) 0%, var(--back-background1) 50%,
-                                var(--back-background2) 50%, var(--back-background2) 100%); */
+                              var(--back-background2) 50%, var(--back-background2) 100%);
+}
+#back-title{
+    font-weight: bold;
+    font-size: 25px;
+}
+#context{
+    padding-top: 30px;
+    font-size: small;
 }
 
 .back-correct {
-    background-color: var(--back-background1);
+    /* background-color: var(--back-background1); */
     color: var(--right-color);
 }
 
 .back-incorrect {
-    background-color: var(--back-background1);
+    /* background-color: var(--back-background1); */
     color: var(--wrong-color);
+}
+
+.back-div {
+    padding: 8px;
+    text-align: left;
 }
 
 @media only screen and (max-width: 576px) {

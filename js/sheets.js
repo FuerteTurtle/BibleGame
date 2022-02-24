@@ -3,7 +3,7 @@ const SHEET_ID = 1;
 const API_KEY = "AIzaSyD17uZ-RUn-vYdJfJqqFhJw-Oiibmtlffc"
 const RANGE = "A2:D"
 const myURL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet${SHEET_ID}!${RANGE}?key=${API_KEY}`;
-let response = {}
+// const devURL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet${SHEET_ID}!${RANGE}?key=${PRIV_API_KEY}`
 
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
@@ -18,12 +18,14 @@ function httpGetAsync(theUrl, callback) {
 let dataArray = []
 
 function parseText(e) {
-    response = JSON.parse(e);
+    let response = JSON.parse(e);
     response.values.forEach(line => {
         dataArray.push(createDatum(line))
     });
-    console.log(dataArray);
+    playGame(dataArray);
 }
+
+//parse helper functions
 
 function checkIsBible(answer){
     if(answer == "Yes"){
