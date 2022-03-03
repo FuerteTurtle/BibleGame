@@ -163,6 +163,9 @@ body:hover {
 }
 
 @media only screen and (max-width: 576px) {
+    body{
+        overflow: hidden;
+    }
     .card-container {
         width: calc(var(--card-phone-width) + 2 * var(--choice-height));
         display: grid;
