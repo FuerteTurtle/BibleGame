@@ -10,6 +10,7 @@
     --back-background2: #563b4a;
     --wrong-color: #f7354d;
     --right-color: #31d3c8;
+    --score-color:white;
     --card-width: 2.5in;
     --card-height: 3.95in;
     --card-phone-width: 75vw;
@@ -108,13 +109,17 @@ body:hover {
     position: absolute;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    overflow-y: auto;
 }
 
 .card-front {
-    align-items: center;
     justify-content: center;
     background-color: white;
     color: var(--card-text-color);
+}
+.front-content{
+
+    margin:auto;
 }
 .card-back {
     /* align-items: center; */
@@ -148,6 +153,13 @@ body:hover {
 .back-div {
     padding: 8px;
     text-align: left;
+}
+
+.score{
+    margin-left:var(--choice-height);
+    padding:8px;
+    font-size: large;
+    color: var(--score-color);
 }
 
 @media only screen and (max-width: 576px) {
