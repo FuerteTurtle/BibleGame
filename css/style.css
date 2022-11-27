@@ -1,5 +1,4 @@
 :root {
-    /* --main-background: #1d1118; */
     --main-background: #f7354d;
     --card-text-color: #4c2f41;
     --border-color: #331e2a;
@@ -180,5 +179,6 @@ body:hover {
     .card-front, .card-back {
         height: var(--card-phone-height);
         width: 100%;
+        overflow-y: scroll;
     }
 }
