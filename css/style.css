@@ -180,5 +180,6 @@ body:hover {
         height: var(--card-phone-height);
         width: 100%;
         overflow-y: scroll;
+        touch-action:pan-y
     }
 }
