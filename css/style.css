@@ -165,9 +165,6 @@ body:hover {
     body{
         overflow: hidden;
     }
-    #area-wrapper{
-        display:fixed;
-    }
     .card-container {
         width: calc(var(--card-phone-width) + 2 * var(--choice-height));
         display: grid;
@@ -183,7 +180,9 @@ body:hover {
         height: var(--card-phone-height);
         width: 100%;
         overflow-y: scroll;
-        touch-action:pan-y;
         -webkit-overflow-scrolling: touch;
+    }
+    .scrollfix{
+        height: calc(var--card-phone-height + 1px);
     }
 }
