@@ -163,7 +163,7 @@ body:hover {
 
 @media only screen and (max-width: 576px) {
     body{
-        overflow: scroll;
+        overflow: hidden;
     }
     #area-wrapper{
         display:fixed;
