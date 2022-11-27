@@ -183,6 +183,6 @@ body:hover {
         -webkit-overflow-scrolling: touch;
     }
     .scrollfix{
-        height: calc(var--card-phone-height + 1px);
+        height: calc(100% + 1px);
     }
 }
